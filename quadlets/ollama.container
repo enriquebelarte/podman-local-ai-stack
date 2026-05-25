@@ -2,7 +2,7 @@
 Description=Ollama Service
 
 [Container]
-Image=ollama/ollama:latest
+Image=docker.io/ollama/ollama:latest
 ContainerName=ollama
 
 PublishPort=11434:11434
