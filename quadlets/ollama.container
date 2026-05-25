@@ -1,0 +1,19 @@
+[Unit]
+Description=Ollama Service
+
+[Container]
+Image=ollama/ollama:latest
+ContainerName=ollama
+
+PublishPort=11434:11434
+
+Volume=%h/containers/ollama:/root/.ollama
+
+# GPU support (optional NVIDIA)
+# AddDevice=nvidia.com/gpu=all
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target

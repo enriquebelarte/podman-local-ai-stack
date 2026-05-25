@@ -1,0 +1,20 @@
+[Unit]
+Description=Open WebUI
+After=ollama.service
+Requires=ollama.service
+
+[Container]
+Image=ghcr.io/open-webui/open-webui:main
+ContainerName=open-webui
+
+PublishPort=3000:8080
+
+Environment=OLLAMA_BASE_URL=http://host.containers.internal:11434
+
+Volume=%h/containers/open-webui:/app/backend/data
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
