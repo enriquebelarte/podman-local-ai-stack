@@ -8,9 +8,14 @@ mkdir -p ~/.config/containers/systemd
 mkdir -p ~/containers/ollama
 mkdir -p ~/containers/open-webui
 
-cp "$ROOT_DIR/quadlets/"*.container ~/.config/containers/systemd/
+cp "$ROOT_DIR"/quadlets/*.container \
+   ~/.config/containers/systemd/
 
 systemctl --user daemon-reload
 
-systemctl --user enable --now ollama.service
-systemctl --user enable --now open-webui.service
+echo "Starting services..."
+
+systemctl --user start ollama.service
+systemctl --user start open-webui.service
+
+echo "Done."
